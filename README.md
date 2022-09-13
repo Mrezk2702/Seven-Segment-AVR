@@ -1,3 +1,3 @@
 # Seven-Segment-AVR
-Seven segment display driver (HAL) for AVR microcontroller.\n
+Seven segment display driver (HAL) for AVR microcontroller  
 master branch

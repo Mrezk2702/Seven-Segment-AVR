@@ -1,0 +1,8 @@
+
+
+/*
+	COM_ANODE = 1
+	COM_CATHODE =0
+*/
+
+#define SEVSEG_TYPE COM_CATHODE

@@ -1,21 +1,21 @@
 /*********************************************************************/
 /*********************************************************************/
 /**********Author: Mohamed Rezk Bayoumi*******************************/
-/**********File: sevSeg_prg.c****************************************/
+/**********File: sevSeg_prg.c.h***********************************/
 /**********Date: 2nd sep 2022*****************************************/
 /**********Version: V1************************************************/
-/*********************************************************************/
-/*********************************************************************/
-/*********************************************************************/
+/********* Desc: In order to use this driver you must include ********/
+/****************the dio driver check for its repo in my profile******/
+/*************** https://github.com/Mrezk2702/DIO_Driver ************/
 
 
 #include "STD_TYPES.h"
 #include "DIO_interface.h"
 #include "sevSeg_private.h"
 #include "sevSeg_cfg.h"
-u8 NUM[10]={0b00111111,0b00000110,0b01011011,
-			0b01001111,0b01100110,0b01101101,
-			0b01111101,0b00000111,0b01111111,0b01101111};
+u8 NUM[10]={ZERO,ONE,TWO,
+			THREE,FOUR,FIVE,
+			SIX,SEVEN,EIGHT,NINE};
 
 
 
@@ -25,8 +25,10 @@ u8 NUM[10]={0b00111111,0b00000110,0b01011011,
 */
 void sevSeg_VidDisplayNumber(u8 Copy_U8PortNum,u8 Copy_U8Number)
 {
-	if(Copy_U8PortNum>=0&&Copy_U8PortNum<4)
+
+	if(Copy_U8PortNum>=PORTA&&Copy_U8PortNum<=PORTD)
 	{
+		DIO_VidSetPortDirection(Copy_U8PortNum,0xff);
 		if(Copy_U8Number>=0&&Copy_U8Number<10)
 		{
 			#if SEVSEG_TYPE == COM_CATHODE
